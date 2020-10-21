@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj": {}
+    "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj": {
+    "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
+        "projectUniqueName": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
         "projectName": "MimicAPI",
-        "projectPath": "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
+        "projectPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
         "packagesPath": "C:\\Users\\suporte\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\obj\\",
+        "outputPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\suporte\\AppData\\Roaming\\NuGet\\NuGet.Config",

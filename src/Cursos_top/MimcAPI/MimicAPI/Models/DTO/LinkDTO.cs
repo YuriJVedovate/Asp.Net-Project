@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MimicAPI.V1.Models.DTO
+namespace MimicAPI.Models.DTO
 {
     public class LinkDTO
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hv5WSJaI7iUXmjQpYzFXm6Pr0jQuQX8GeXCaCOIQh2UcdkPeOFdFLOQQeCczq601BO844xQYVkhRdd5zrzor2g==",
+  "dgSpecHash": "ZUu76h6ErYRpGkwKvXJfA1UL6McBN9zNgTDwaA/UFCz3XKzSKTb7QX6LQTPNZsChlA000IzbP/2dRGZ6OWq4Pg==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\ASPCORE\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
+  "projectFilePath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\suporte\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\suporte\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",
