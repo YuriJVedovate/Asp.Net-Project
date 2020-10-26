@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MimicAPI</name>
+    </assembly>
+    <members>
+        <member name="M:MimicAPI.Controllers.WordsController.GetAll(MimicAPI.Helpers.WordQueryUrl)">
+            <summary>
+            operation for get of database all words
+            </summary>
+            <param name="query">Search filter</param>
+            <returns>Word list</returns>
+        </member>
+        <member name="M:MimicAPI.Controllers.WordsController.GetOne(System.Int32)">
+            <summary>
+            operation for get only one word of data base
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

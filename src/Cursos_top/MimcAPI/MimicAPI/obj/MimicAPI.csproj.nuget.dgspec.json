@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
         "projectName": "MimicAPI",
         "projectPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\MimicAPI.csproj",
-        "packagesPath": "C:\\Users\\suporte\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\yjvedovate\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MimcAPI\\MimicAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\suporte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yjvedovate\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

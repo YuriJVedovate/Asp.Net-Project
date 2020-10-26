@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\ASPCORE\\src\\Academia_stefanini\\ASPCORE.csproj",
+      "projectUniqueName": "C:\\Projetos\\Asp.Net-Project\\src\\Academia_stefanini\\ASPCORE.csproj",
       "projectName": "ASPCORE",
-      "projectPath": "C:\\Projetos\\ASPCORE\\src\\Academia_stefanini\\ASPCORE.csproj",
+      "projectPath": "C:\\Projetos\\Asp.Net-Project\\src\\Academia_stefanini\\ASPCORE.csproj",
       "packagesPath": "C:\\Users\\yjvedovate\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\ASPCORE\\src\\Academia_stefanini\\obj\\",
+      "outputPath": "C:\\Projetos\\Asp.Net-Project\\src\\Academia_stefanini\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\yjvedovate\\AppData\\Roaming\\NuGet\\NuGet.Config",

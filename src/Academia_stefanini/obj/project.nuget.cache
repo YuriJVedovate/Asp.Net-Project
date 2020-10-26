@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LcNsXhUZLI5sOQ6tf8LiTTYXC+uv5mKZ7MNP5eq423n3IkkM1iNlLWcpbOt6eyScdWqRZKKOhrHjduP1IWw49Q==",
+  "dgSpecHash": "m2ErrZyYNwQ2y0oILIj552SjJ2CresXg9PJQ4jCotwPf6/W1UvL7cg1EjQEkKfWR6TbYoQr6WyDOfkwsQYIapg==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\ASPCORE\\src\\Academia_stefanini\\ASPCORE.csproj",
+  "projectFilePath": "C:\\Projetos\\Asp.Net-Project\\src\\Academia_stefanini\\ASPCORE.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

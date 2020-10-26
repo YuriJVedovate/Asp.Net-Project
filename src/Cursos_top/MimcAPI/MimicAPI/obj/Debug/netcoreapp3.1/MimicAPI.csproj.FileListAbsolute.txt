@@ -140,3 +140,5 @@ C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\obj\Debug\netcoreapp
 C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\obj\Debug\netcoreapp3.1\staticwebassets\MimicAPI.StaticWebAssets.xml
 C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\obj\Debug\netcoreapp3.1\MimicAPI.genruntimeconfig.cache
 C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\obj\Debug\netcoreapp3.1\MimicAPI.csprojAssemblyReference.cache
+C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\bin\Debug\netcoreapp3.1\MimicAPI.xml
+C:\Projetos\Asp.Net-Project\src\Cursos_top\MimcAPI\MimicAPI\obj\Debug\netcoreapp3.1\MimicAPI.xml

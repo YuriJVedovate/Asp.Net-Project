@@ -10,7 +10,7 @@ using System;
 
 namespace MimicAPI.Controllers
 {
-    
+
     [Route("api/[controller]")]
     public class WordsController : ControllerBase
     {
@@ -26,6 +26,12 @@ namespace MimicAPI.Controllers
         }
 
 
+
+        /// <summary>
+        /// operation for get of database all words
+        /// </summary>
+        /// <param name="query">Search filter</param>
+        /// <returns>Word list</returns>
         [HttpGet("", Name = "GetAll")]
         public IActionResult GetAll([FromQuery] WordQueryUrl query)
         {
@@ -41,6 +47,15 @@ namespace MimicAPI.Controllers
 
 
 
+
+
+
+
+        /// <summary>
+        /// operation for get only one word of data base
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("id", Name = "GetWord")]
         public IActionResult GetOne(int id)
         {
