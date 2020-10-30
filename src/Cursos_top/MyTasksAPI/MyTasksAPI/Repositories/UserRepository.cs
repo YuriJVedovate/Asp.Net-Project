@@ -43,5 +43,10 @@ namespace MyTasksAPI.Repositories.Contracts
                 throw new Exception("Usuário não localizado!");
             }
         }
+
+        public ApplicationUser Get(string id)
+        {
+            return _userManager.FindByIdAsync(id).Result;
+        }
     }
 }

@@ -257,6 +257,40 @@ namespace MyTasksAPI.Migrations
                     b.ToTable("Tasks");
                 });
 
+            modelBuilder.Entity("MyTasksAPI.Models.Token", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ExpirationRefreshToken")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpirationToken")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Insert")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("Update")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("Used")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Token");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -312,6 +346,13 @@ namespace MyTasksAPI.Migrations
                 {
                     b.HasOne("MyTasksAPI.Models.ApplicationUser", "User")
                         .WithMany("Tasks")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("MyTasksAPI.Models.Token", b =>
+                {
+                    b.HasOne("MyTasksAPI.Models.ApplicationUser", "User")
+                        .WithMany("Tokens")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

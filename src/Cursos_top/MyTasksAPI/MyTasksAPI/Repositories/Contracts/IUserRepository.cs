@@ -8,5 +8,7 @@ namespace MyTasksAPI.Repositories.Contracts
 
         ApplicationUser Get(string email, string password);
 
+        ApplicationUser Get(string id);
+
     }
 }

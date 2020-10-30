@@ -23,7 +23,7 @@ namespace MyTasksAPI.Models
         public DateTime Update { get; set; }
 
         [ForeignKey("User")]
-        public String UserId { get; set; }
+        public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 

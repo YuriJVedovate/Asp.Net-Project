@@ -13,5 +13,7 @@ namespace MyTasksAPI.Database
         }
 
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Token> Token { get; set; }
+
     }
 }

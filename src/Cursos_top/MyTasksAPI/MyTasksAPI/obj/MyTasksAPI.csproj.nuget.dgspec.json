@@ -10,11 +10,11 @@
         "projectUniqueName": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MyTasksAPI\\MyTasksAPI\\MyTasksAPI.csproj",
         "projectName": "MyTasksAPI",
         "projectPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MyTasksAPI\\MyTasksAPI\\MyTasksAPI.csproj",
-        "packagesPath": "C:\\Users\\suporte\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\yjvedovate\\.nuget\\packages\\",
         "outputPath": "C:\\Projetos\\Asp.Net-Project\\src\\Cursos_top\\MyTasksAPI\\MyTasksAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\suporte\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\yjvedovate\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[6.4.4, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -58,12 +62,6 @@
               "target": "Package",
               "version": "[3.1.9, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.9, )"
-            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.1.9, )"
@@ -77,6 +75,26 @@
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[3.1.9, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
             }
           },
           "imports": [

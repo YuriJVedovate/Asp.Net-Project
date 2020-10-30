@@ -1,8 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MyTasksAPI.Models;
+using MyTasksAPI.Repositories;
 using MyTasksAPI.Repositories.Contracts;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace MyTasksAPI.Controllers
 {
@@ -12,13 +18,15 @@ namespace MyTasksAPI.Controllers
     {
 
         private readonly IUserRepository _userRepository;
-        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        public UserController(IUserRepository userRepository, SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        private readonly ITokenRepository _tokenRepository;
+
+        public UserController(IUserRepository userRepository, UserManager<ApplicationUser> userManager, ITokenRepository tokenRepository)
         {
             _userRepository = userRepository;
-            _signInManager = signInManager;
             _userManager = userManager;
+            _tokenRepository = tokenRepository;
+
         }
 
 
@@ -33,9 +41,7 @@ namespace MyTasksAPI.Controllers
                 ApplicationUser user = _userRepository.Get(userDTO.Email, userDTO.Password);
                 if (user != null)
                 {
-                    _signInManager.SignInAsync(user, false);
-
-                    return Ok("acesso permitido");
+                    return crudToken(user);
                 }
                 else
                 {
@@ -47,6 +53,23 @@ namespace MyTasksAPI.Controllers
             {
                 return UnprocessableEntity("acesso negado " + ModelState);
             }
+        }
+
+        [HttpPost("renew")]
+        public IActionResult renew([FromBody] TokenDTO tokenDTO )
+        {
+            var refreshTokenDB = _tokenRepository.GetToken(tokenDTO.RefreshToken);
+            if (refreshTokenDB == null)
+                return NotFound();
+
+            refreshTokenDB.Update = DateTime.Now;
+            refreshTokenDB.Used = true;
+            _tokenRepository.UpdateToken(refreshTokenDB);
+
+
+            var user = _userRepository.Get(refreshTokenDB.UserId);
+
+            return crudToken(user);
         }
 
         [HttpPost("Register")]
@@ -78,6 +101,55 @@ namespace MyTasksAPI.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
+        }
+
+        private TokenDTO BuildTolken(ApplicationUser user)
+        {
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id)
+            };
+
+            var key = new SymmetricSecurityKey( Encoding.UTF8.GetBytes( "Key-Api-Jwt-My-Taks" ));
+            var sign = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var exp = DateTime.UtcNow.AddMinutes(2);
+
+            JwtSecurityToken token = new JwtSecurityToken(
+                    issuer: null,
+                    audience: null,
+                    claims: claims,
+                    expires: exp,
+                    signingCredentials: sign
+                );
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            var expRefreshToken = DateTime.UtcNow.AddMinutes(3);
+
+            var refreshToken = Guid.NewGuid().ToString();
+
+            var tokenDTO = new TokenDTO { Token = tokenString, expires = exp, ExpirationRefreshToken = expRefreshToken, RefreshToken = refreshToken };
+
+            return tokenDTO;
+        }
+
+        private IActionResult crudToken(ApplicationUser user)
+        {
+            var token = BuildTolken(user);
+
+            var tokenModel = new Token()
+            {
+                RefreshToken = token.RefreshToken,
+                ExpirationToken = token.expires,
+                ExpirationRefreshToken = token.ExpirationRefreshToken,
+                User = user,
+                Insert = DateTime.Now,
+                Used = false
+            };
+
+            _tokenRepository.RegisterToken(tokenModel);
+
+            return Ok(token);
         }
     }
 }

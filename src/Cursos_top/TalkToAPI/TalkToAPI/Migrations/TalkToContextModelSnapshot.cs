@@ -2,17 +2,15 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyTasksAPI.Database;
+using TalkToAPI.Database;
 
-namespace MyTasksAPI.Migrations
+namespace TalkToAPI.Migrations
 {
-    [DbContext(typeof(MyTasksContext))]
-    [Migration("20201026144215_InitialBase")]
-    partial class InitialBase
+    [DbContext(typeof(TalkToContext))]
+    partial class TalkToContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,7 +144,7 @@ namespace MyTasksAPI.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MyTasksAPI.Models.ApplicationUser", b =>
+            modelBuilder.Entity("TalkToAPI.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -194,6 +192,9 @@ namespace MyTasksAPI.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Slogan")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("INTEGER");
 
@@ -213,50 +214,65 @@ namespace MyTasksAPI.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("MyTasksAPI.Models.Task", b =>
+            modelBuilder.Entity("TalkToAPI.Models.Message", b =>
                 {
-                    b.Property<int>("IdTaskApi")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("CompletionStatus")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DateTime")
+                    b.Property<string>("ByUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("ForUserId")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("ExclusionStatus")
+                    b.Property<string>("Messages")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("SendTime")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ByUserId");
+
+                    b.HasIndex("ForUserId");
+
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("TalkToAPI.Models.Token", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdTaskApp")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("ExpirationRefreshToken")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("ExpirationToken")
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("Insert")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Local")
+                    b.Property<string>("RefreshToken")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Title")
+                    b.Property<DateTime?>("Update")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Update")
-                        .HasColumnType("TEXT");
+                    b.Property<bool>("Used")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("IdTaskApi");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tasks");
+                    b.ToTable("tokens");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -270,7 +286,7 @@ namespace MyTasksAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MyTasksAPI.Models.ApplicationUser", null)
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -279,7 +295,7 @@ namespace MyTasksAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MyTasksAPI.Models.ApplicationUser", null)
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -294,7 +310,7 @@ namespace MyTasksAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MyTasksAPI.Models.ApplicationUser", null)
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -303,17 +319,28 @@ namespace MyTasksAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MyTasksAPI.Models.ApplicationUser", null)
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MyTasksAPI.Models.Task", b =>
+            modelBuilder.Entity("TalkToAPI.Models.Message", b =>
                 {
-                    b.HasOne("MyTasksAPI.Models.ApplicationUser", "User")
-                        .WithMany("Tasks")
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", "ByUser")
+                        .WithMany()
+                        .HasForeignKey("ByUserId");
+
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", "ForUser")
+                        .WithMany()
+                        .HasForeignKey("ForUserId");
+                });
+
+            modelBuilder.Entity("TalkToAPI.Models.Token", b =>
+                {
+                    b.HasOne("TalkToAPI.Models.ApplicationUser", "User")
+                        .WithMany()
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
