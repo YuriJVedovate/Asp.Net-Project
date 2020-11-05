@@ -221,15 +221,24 @@ namespace TalkToAPI.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ByUserId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ForUserId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Messages")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("SendTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("Update")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -330,11 +339,15 @@ namespace TalkToAPI.Migrations
                 {
                     b.HasOne("TalkToAPI.Models.ApplicationUser", "ByUser")
                         .WithMany()
-                        .HasForeignKey("ByUserId");
+                        .HasForeignKey("ByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TalkToAPI.Models.ApplicationUser", "ForUser")
                         .WithMany()
-                        .HasForeignKey("ForUserId");
+                        .HasForeignKey("ForUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TalkToAPI.Models.Token", b =>
